@@ -1,6 +1,6 @@
-# Telegram English Tutor Bot
+# Telegram Language Tutor Bot
 
-This is a simple English Tutor Bot which can help you to enrich your vocabulary and can help to learn phrases and pronunciation.
+This is a simple Language Tutor Bot which can help you to enrich your vocabulary and can help to learn phrases and pronunciation.
 
 Actually you can learn any language and can have any native language - the bot is multilingual.
 
@@ -17,13 +17,13 @@ The audio file has the structure:
 Clone the repo:
 
 ```sh
-git clone https://github.com/vensder/telegram-english-tutor.git
+git clone https://github.com/vensder/language-tutor-bot.git
 ```
 
 Add the Python 3 virtual environment and install the modules:
 
 ```sh
-cd telegram-english-tutor
+cd language-tutor-bot
 virtualenv -p python3 env
 source ./env/bin/activate
 pip install -r requirements.txt
