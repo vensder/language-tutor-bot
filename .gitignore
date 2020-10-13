@@ -1,0 +1,11 @@
+__pycache__
+config.py
+env
+venv
+env3
+audio
+*.mp3
+
+
+.idea
+.vscode
