@@ -3,9 +3,10 @@ config.py
 env
 venv
 env3
-audio
-*.mp3
 
+audio/*
+!audio/.gitkeep
+*.mp3
 
 .idea
 .vscode
