@@ -2,6 +2,8 @@
 
 This is a simple English Tutor Bot which can help you to enrich your vocabulary and can help to learn phrases and pronunciation.
 
+Actually you can learn any language and can have any native language - the bot is multilingual.
+
 It is pretty easy to use it: just send the word or sentence to the Telegram channel, where is your bot added. And bot will translate it and will add the audio file to the telegram channel.
 
 The audio file has the structure:
