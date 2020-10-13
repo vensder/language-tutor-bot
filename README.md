@@ -18,6 +18,14 @@ Clone the repo:
 git clone https://github.com/vensder/telegram-english-tutor.git
 ```
 
+Add the Python 3 virtual environment and install the modules:
+
+```sh
+virtualenv -p python3 env
+source ./env/bin/activate
+pip install -r requirements.txt
+```
+
 To run the bot just rename `example.config.py` file to `config.py` and replace the fake Telegram Bot API token with the real one. 
 
 ```sh
