@@ -12,7 +12,19 @@ The audio file has the structure:
 
 ## Run The Bot
 
+Clone the repo:
+
+```sh
+git clone https://github.com/vensder/telegram-english-tutor.git
+```
+
 To run the bot just rename `example.config.py` file to `config.py` and replace the fake Telegram Bot API token with the real one. 
+
+```sh
+cd telegram-english-tutor
+mv example.config.py config.py
+./main.py
+```
 
 How to create the bot and how to obtain the token, check out here: https://core.telegram.org/bots/api
 
