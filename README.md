@@ -42,12 +42,4 @@ Also put the language codes into the config, corresponding to your native langua
 
 The benefit of having the audio files in the telegram group is that you can listen to all audio on your mobile device even if you are walking. The telegram media player will play all of them in the group.
 
-Later you can delete all of them and add the new ones.
-
-## Some screenshots
-
-![Telegram bot 01](./img/mobile01.jpg?raw=true)
-
-![Telegram bot 02](./img/mobile02.jpg?raw=true)
-
-![Telegram bot 03](./img/desktop01.png?raw=true)
+Once you remember them, you can delete them and add new ones.
