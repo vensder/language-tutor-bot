@@ -16,17 +16,24 @@ translator = Translator()
 
 
 def translate(text):
+    transcription = ""
     detected_lang = translator.detect(text).lang
     if detected_lang == learning_lang:
         tr = translator.translate(text, dest=native_lang, src=learning_lang)
+        if (
+            len(text.split()) == 1
+            and "translation" in tr.extra_data
+            and len(tr.extra_data["translation"][1]) > 3
+        ):
+            transcription = "[{}]".format(tr.extra_data["translation"][1][3])
     else:
         tr = translator.translate(text, dest=learning_lang, src=detected_lang)
-    return tr.src, tr.dest, tr.text
+    return tr.src, tr.dest, tr.text, transcription
 
 
 class TutorMeIt:
     def __init__(self, passed_text):
-        source_lang, dest_lang, translation = translate(passed_text)
+        source_lang, dest_lang, translation, transcription = translate(passed_text)
         if source_lang == learning_lang:
             self.text = passed_text
             self.textLang = source_lang
@@ -37,6 +44,7 @@ class TutorMeIt:
             self.textLang = dest_lang
             self.otherText = passed_text
             self.otherTextLang = source_lang
+        self.transcription = transcription
 
 
 def send_audio(update, context):
@@ -56,7 +64,7 @@ def send_audio(update, context):
     update.message.reply_audio(
         audio=open(audio_path, "rb"),
         quote=False,
-        caption=f"{repeat_it.text}\n[{repeat_it.otherTextLang}]: {repeat_it.otherText}",
+        caption=f"{repeat_it.text} {repeat_it.transcription}\n[{repeat_it.otherTextLang}]: {repeat_it.otherText}",
     )
 
     del repeat_it
