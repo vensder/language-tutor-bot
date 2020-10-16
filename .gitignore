@@ -12,3 +12,6 @@ audio/*
 .vscode
 ex
 
+*.log
+
+
