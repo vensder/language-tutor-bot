@@ -16,7 +16,7 @@ translator = Translator()
 
 
 def translate(text):
-    transcription = None
+    transcription = ""
     definitions = None
     examples = None
     detected_lang = translator.detect(text).lang
@@ -24,7 +24,7 @@ def translate(text):
         tr = translator.translate(text, dest=native_lang, src=learning_lang)
         if len(text.split()) == 1:
             if (
-                "translation" in tr.extra_data
+                "translation" in tr.extra_data and len(tr.extra_data["translation"]) > 1
                 and len(tr.extra_data["translation"][1]) > 3
             ):
                 transcription = "[{}]".format(tr.extra_data["translation"][1][3])
@@ -75,6 +75,16 @@ def send_audio(update, context):
             tts_learning_lang.write_to_fp(f)
             tts_other_lang.write_to_fp(f)
             tts_learning_lang_slow.write_to_fp(f)
+            if repeat_it.definitions:
+                for definition in repeat_it.definitions:
+                    tts_definition = gTTS(definition[0], lang=repeat_it.textLang)
+                    tts_definition.write_to_fp(f)
+            if repeat_it.examples:
+                tts_some_examples = gTTS("Some examples.", lang=learning_lang)
+                tts_some_examples.write_to_fp(f)
+                for example in repeat_it.examples:
+                    tts_example = gTTS(example[0].replace("<b>", "").replace("</b>", ""), lang=repeat_it.textLang)
+                    tts_example.write_to_fp(f)
 
     caption = f"{repeat_it.text} {repeat_it.transcription}\n[{repeat_it.otherTextLang}]: {repeat_it.otherText}"
     if repeat_it.definitions:
