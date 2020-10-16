@@ -5,6 +5,14 @@ from googletrans import Translator
 from gtts import gTTS
 import config
 import os
+import logging
+
+logging.basicConfig(
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    level=config.log_level,
+)
+
+logger = logging.getLogger(__name__)
 
 token = config.token
 learning_lang = config.learning_language
@@ -24,7 +32,8 @@ def translate(text):
         tr = translator.translate(text, dest=native_lang, src=learning_lang)
         if len(text.split()) == 1:
             if (
-                "translation" in tr.extra_data and len(tr.extra_data["translation"]) > 1
+                "translation" in tr.extra_data
+                and len(tr.extra_data["translation"]) > 1
                 and len(tr.extra_data["translation"][1]) > 3
             ):
                 transcription = "[{}]".format(tr.extra_data["translation"][1][3])
@@ -83,7 +92,10 @@ def send_audio(update, context):
                 tts_some_examples = gTTS("Some examples.", lang=learning_lang)
                 tts_some_examples.write_to_fp(f)
                 for example in repeat_it.examples:
-                    tts_example = gTTS(example[0].replace("<b>", "").replace("</b>", ""), lang=repeat_it.textLang)
+                    tts_example = gTTS(
+                        example[0].replace("<b>", "").replace("</b>", ""),
+                        lang=repeat_it.textLang,
+                    )
                     tts_example.write_to_fp(f)
 
     caption = f"{repeat_it.text} {repeat_it.transcription}\n[{repeat_it.otherTextLang}]: {repeat_it.otherText}"
