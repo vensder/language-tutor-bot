@@ -12,6 +12,8 @@ The audio file has the structure:
 <the phrase in your native language>, 
 <the slow phrase in studying language>`
 
+If you send one word only and if the translation module returns the definitions and/or examples of the word, this text will be added to the audio file as well.
+
 ## Run The Bot
 
 Clone the repo:
