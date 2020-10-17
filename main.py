@@ -131,6 +131,7 @@ def send_audio(update, context):
         audio=open(audio_path, "rb"),
         quote=False,
         caption=caption,
+        title=repeat_it.text if len(repeat_it.text) < 18 else repeat_it.text[0:18] + "…",
     )
 
     del repeat_it
