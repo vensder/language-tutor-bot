@@ -27,22 +27,18 @@ def translate(text):
     transcription = ""
     definitions = None
     examples = None
-    detected_lang = translator.detect(text).lang
-    if detected_lang == learning_lang:
-        tr = translator.translate(text, dest=native_lang, src=learning_lang)
-        if len(text.split()) == 1:
-            if (
-                "translation" in tr.extra_data
-                and len(tr.extra_data["translation"]) > 1
-                and len(tr.extra_data["translation"][1]) > 3
-            ):
-                transcription = "[{}]".format(tr.extra_data["translation"][1][3])
-            if "definitions" in tr.extra_data and tr.extra_data["definitions"]:
-                definitions = tr.extra_data["definitions"][0][1]
-            if "examples" in tr.extra_data and tr.extra_data["examples"]:
-                examples = tr.extra_data["examples"][0]
-    else:
-        tr = translator.translate(text, dest=learning_lang, src=detected_lang)
+    tr = translator.translate(text, dest=native_lang, src=learning_lang)
+    if len(text.split()) == 1:
+        if (
+            "translation" in tr.extra_data
+            and len(tr.extra_data["translation"]) > 1
+            and len(tr.extra_data["translation"][1]) > 3
+        ):
+            transcription = "[{}]".format(tr.extra_data["translation"][1][3])
+        if "definitions" in tr.extra_data and tr.extra_data["definitions"]:
+            definitions = tr.extra_data["definitions"][0][1]
+        if "examples" in tr.extra_data and tr.extra_data["examples"]:
+            examples = tr.extra_data["examples"][0]
     return tr.src, tr.dest, tr.text, transcription, definitions, examples
 
 

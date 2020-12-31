@@ -13,5 +13,5 @@ audio/*
 ex
 
 *.log
-
+*.log.*
 
