@@ -1,3 +1,5 @@
+# Rename this file to `config.py`
+
 import logging
 # Logging levels:
 # logging.CRITICAL, logging.ERROR, logging.FATAL, logging.WARNING, logging.INFO, logging.DEBUG, logging.NOTSET
