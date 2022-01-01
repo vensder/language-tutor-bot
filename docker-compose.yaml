@@ -5,3 +5,6 @@ services:
     build: .
     environment:
       - TELEGRAM_TOKEN=${TELEGRAM_TOKEN}
+      - LOGGING_LEVEL=${LOGGING_LEVEL}
+      - LEARNING_LANGUAGE=${LEARNING_LANGUAGE}
+      - NATIVE_LANGUAGE=${NATIVE_LANGUAGE}
