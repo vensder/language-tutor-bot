@@ -8,3 +8,9 @@ services:
       - LOGGING_LEVEL=${LOGGING_LEVEL}
       - LEARNING_LANGUAGE=${LEARNING_LANGUAGE}
       - NATIVE_LANGUAGE=${NATIVE_LANGUAGE}
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
