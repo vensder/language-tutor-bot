@@ -1,4 +1,4 @@
-FROM python:3.10-buster
+FROM python:3.9.9-slim-buster
 
 WORKDIR /usr/src/app/
 COPY main.py requirements.txt /usr/src/app/
