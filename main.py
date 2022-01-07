@@ -3,22 +3,23 @@
 from telegram.ext import Updater, MessageHandler
 from googletrans import Translator
 from gtts import gTTS
-import config
 import os
 import logging
 
+logging_level = os.getenv('LOGGING_LEVEL')
+
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-    level=config.log_level,
+    level=logging_level,
 )
 
 logger = logging.getLogger(__name__)
 
-token = config.token
-learning_lang = config.learning_language
-native_lang = config.native_language
+telegram_token = os.getenv('TELEGRAM_TOKEN')
+learning_lang = os.getenv('LEARNING_LANGUAGE')
+native_lang = os.getenv('NATIVE_LANGUAGE')
 
-audio_dir = "audio"
+audio_dir = "/tmp"
 
 translator = Translator()
 
@@ -133,7 +134,7 @@ def send_audio(update, context):
     del repeat_it
 
 
-updater = Updater(token, use_context=True)
+updater = Updater(telegram_token, use_context=True)
 dp = updater.dispatcher
 
 dp.add_handler(MessageHandler(None, send_audio))

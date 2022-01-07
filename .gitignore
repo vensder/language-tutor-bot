@@ -15,3 +15,5 @@ ex
 *.log
 *.log.*
 
+.env
+*.env
