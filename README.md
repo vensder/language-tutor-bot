@@ -31,7 +31,7 @@ If you send a single word and the translation module provides definitions or exa
 <p align="center">
   <img src="img/mobile01.jpg" alt="Mobile view 1" width="30%">
   <img src="img/mobile02.jpg" alt="Mobile view 2" width="30%">
-  <img src="img/desktop02.png" alt="Desktop view" width="33%">
+  <img src="img/desktop03.png" alt="Desktop view" width="32%">
 </p>
 
 ## 🚀 Getting Started
