@@ -19,7 +19,7 @@ Audio example for English (studying language) and French (native language), gene
 
 <audio controls>
   <source src="examples/beautiful_city_fr.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
+  Audio element is not supported here.
 </audio>
 
 [Download MP3](examples/beautiful_city_fr.mp3)
