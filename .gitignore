@@ -6,6 +6,7 @@ env3
 
 audio/*
 !audio/.gitkeep
+!examples/*.mp3
 *.mp3
 
 .idea
