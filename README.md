@@ -1,47 +1,79 @@
 # Telegram Language Tutor Bot
 
-This is a simple Language Tutor Bot which can help you to enrich your vocabulary and can help to learn phrases and pronunciation.
+A simple multilingual Telegram bot that helps you expand your vocabulary, learn new phrases, and improve pronunciation.
 
-Actually you can learn any language and can have any native language - the bot is multilingual.
+The bot supports any combination of native and learning languages.  
+Just send a word or sentence to the Telegram chat where your bot is added — it will automatically translate it and send back an audio message with the pronunciation.
 
-It is pretty easy to use it: just send the word or sentence to the Telegram channel, where is your bot added. And bot will translate it and will add the audio file to the telegram channel.
+The audio message includes:
 
-The audio file has the structure:
-
-`<the phrase in studying language>, 
+```
+<the phrase in studying language>, 
 <the phrase in your native language>, 
-<the slow phrase in studying language>`
+<the slow phrase in studying language>
+```
 
-If you send one word only and if the translation module returns the definitions and/or examples of the word, this text will be added to the audio file as well.
+If you send a single word and the translation module provides definitions or examples, those will also be included in the audio file.
 
-## Run The Bot
+<p align="center">
+  <img src="img/mobile01.jpg" alt="Mobile view 1" width="30%">
+  <img src="img/mobile02.jpg" alt="Mobile view 2" width="30%">
+  <img src="img/desktop02.png" alt="Desktop view" width="33%">
+</p>
 
-Clone the repo:
+## 🚀 Getting Started
+
+### Clone the repository
 
 ```sh
 git clone https://github.com/vensder/language-tutor-bot.git
+cd language-tutor-bot
 ```
-
-Add the Python 3 virtual environment and install the modules:
+### Set up a virtual environment
 
 ```sh
-cd language-tutor-bot
-virtualenv -p python3 env
-source ./env/bin/activate
+python3 -m venv venv
+source ./venv/bin/activate
 pip install -r requirements.txt
 ```
 
-To run the bot just rename `example.config.py` file to `config.py` and replace the fake Telegram Bot API token with the real one. 
+### Configure your environment
+
+Copy the example `.env` file and replace the placeholder token with your real Telegram Bot API token:
 
 ```sh
-mv example.config.py config.py
+mv .env.example .env
+```
+
+Or you can export it manually in your terminal:
+
+```sh
+export TELEGRAM_TOKEN=123456789:ABCDEFGHIJKLMNOabcdefghijklmnopqrst
+```
+
+If you don’t have a Telegram bot yet, create one using BotFather and get your token:
+
+Create your bot with BotFather: https://core.telegram.org/bots/features#botfather
+
+Authorize your bot: https://core.telegram.org/bots/api#authorizing-your-bot
+
+### Configure your languages
+
+Edit the configuration file and set your native language and learning language codes.
+You can find all available language codes here:
+👉 https://cloud.google.com/translate/docs/languages
+
+### Run the bot
+
+```sh
 ./main.py
 ```
 
-How to create the bot and how to obtain the token, check out here: https://core.telegram.org/bots/api
+### 🎧 Why It’s Useful
 
-Also put the language codes into the config, corresponding to your native language and learning language. You can check them out here: https://cloud.google.com/translate/docs/languages
+The bot saves audio files directly in your Telegram group or channel, so you can:
 
-The benefit of having the audio files in the telegram group is that you can listen to all audio on your mobile device even if you are walking. The telegram media player will play all of them in the group.
+- Listen to them anytime on your phone (even while walking)
+- Play them in sequence using the Telegram media player
+- Delete the ones you’ve already memorized and add new ones easily
 
-Once you remember them, you can delete them and add new ones.
