@@ -8,17 +8,17 @@ from googletrans import Translator
 from gtts import gTTS
 
 # Configure logging
-logging_level = os.getenv('LOGGING_LEVEL', 'INFO')
+logging_level = os.getenv('LOGGING_LEVEL', 'INFO').upper()
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-    level=logging.getLevelName(logging_level),
+    level=logging_level,
 )
 logger = logging.getLogger(__name__)
 
 # Environment variables
 telegram_token = os.getenv('TELEGRAM_TOKEN')
 learning_lang = os.getenv('LEARNING_LANGUAGE', 'en')  # Default to English
-native_lang = os.getenv('NATIVE_LANGUAGE', 'en')      # Default to English
+native_lang = os.getenv('NATIVE_LANGUAGE', 'es')      # Default to Spanish
 audio_dir = "/tmp"
 
 async def translate(text):
