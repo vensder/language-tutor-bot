@@ -77,3 +77,53 @@ The bot saves audio files directly in your Telegram group or channel, so you can
 - Play them in sequence using the Telegram media player
 - Delete the ones you’ve already memorized and add new ones easily
 
+## 🐳 Run with Docker Compose
+
+You can easily build and run the bot using Docker Compose.
+
+### Set up your environment
+
+Create a `.env` file in the project root (you can copy from `.env.example`) and update it with your real Telegram bot token and language codes:
+
+```sh
+cp .env.example .env
+```
+
+Example .env:
+
+```sh
+TELEGRAM_TOKEN=123456789:ABCDEFGHIJKLMNOabcdefghijklmnopqrst
+LOGGING_LEVEL=INFO
+LEARNING_LANGUAGE=en
+NATIVE_LANGUAGE=fr
+```
+
+### Build the Docker image
+
+```sh
+docker compose build
+```
+
+### Start the bot
+
+Run the bot in the background:
+
+```sh
+docker compose up -d
+```
+
+To check the logs:
+
+```sh
+docker compose logs -f
+```
+
+### Stop the bot
+
+When you’re done, stop and remove the container:
+
+```sh
+docker compose down
+```
+
+This setup keeps your environment clean and allows you to run the bot anywhere with a single command.
